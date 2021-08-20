@@ -56,13 +56,12 @@ BOARD_KERNEL_CMDLINE := \
 	user_debug=31 \
 	msm_rtb.filter=0x37 \
 	ehci-hcd.park=3 \
-	lpm_levels.sleep_disabled=1 
+	lpm_levels.sleep_disabled=1 \
 	sched_enable_hmp=1 \
 	sched_enable_power_aware=1 \
-	service_locator.enable=1 
+	service_locator.enable=1 \
 	swiotlb=1 \
-	firmware_class.path=/vendor/firmware_mnt/image 
-	loop.max_part=7 \
+	firmware_class.path=/vendor/firmware_mnt/image \
 	buildvariant=user
 BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive	
 TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/Image.gz-dtb
@@ -74,12 +73,12 @@ BOARD_FLASH_BLOCK_SIZE := 262144 # (BOARD_KERNEL_PAGESIZE * 64)
 BOARD_MKBOOTIMG_ARGS += --ramdisk_offset $(BOARD_RAMDISK_OFFSET)
 BOARD_MKBOOTIMG_ARGS += --tags_offset $(BOARD_KERNEL_TAGS_OFFSET)
 BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
-TARGET_KERNEL_ARCH := arm64
-TARGET_KERNEL_HEADER_ARCH := arm64
+TARGET_KERNEL_ARCH := $(TARGET_ARCH)
+TARGET_KERNEL_HEADER_ARCH := $(TARGET_ARCH)
 
 # Platform
 TARGET_BOARD_PLATFORM := sdm660
-TARGET_BOARD_PLATFORM_GPU := qcom-adreno09
+TARGET_BOARD_PLATFORM_GPU := qcom-adreno509
 QCOM_BOARD_PLATFORMS += $(TARGET_BOARD_PLATFORM)
 
 # Partitions
