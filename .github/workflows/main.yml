@@ -18,7 +18,7 @@ on:
 env:
   MANIFEST: git://github.com/minimal-manifest-twrp/platform_manifest_twrp_omni.git -b twrp-9.0
   DEVICE: X00T
-  DT_LINK: https://github.com/hraj9258/recovery_device_asus_X00T_twrp
+  DT_LINK: https://github.com/hraj9258/recovery_device_asus_X00T_twrp -b sdt-decryption
   DT_PATH: device/asus/X00T
   CHAT_ID: ${{ secrets.TEST_CHAT_ID }}
   BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
@@ -65,10 +65,10 @@ jobs:
        - name: Uploading recovery image
          run: |
               cd work/out/target/product/$DEVICE
-              sudo zip -r9 TWRP-X00T.zip recovery.img
+              sudo zip -r9 TWRP-X00T-sdt-decryption.zip recovery.img
               ls > ls.txt
               curl -F chat_id=$CHAT_ID -F document=@ls.txt -F parse_mode=markdown https://api.telegram.org/bot$BOT_TOKEN/sendDocument -F caption="Check it out @hraj9258"
-              curl -F chat_id=$CHAT_ID -F document=@TWRP-X00T.zip https://api.telegram.org/bot$BOT_TOKEN/sendDocument -F caption="Please test it @hraj9258"
+              curl -F chat_id=$CHAT_ID -F document=@TWRP-X00T-sdt-decryption.zip https://api.telegram.org/bot$BOT_TOKEN/sendDocument -F caption="Please test it @hraj9258"
               curl -sL https://git.io/file-transfer | sh
-              ./transfer wet TWRP-X00T.zip
+              ./transfer wet TWRP-X00T-sdt-decryption.zip
               ./transfer wet recovery.img

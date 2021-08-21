@@ -22,5 +22,5 @@ LOCAL_PATH := device/asus/ASUS_X00T
 $(call inherit-product, $(SRC_TARGET_DIR)/product/embedded.mk)
 
 # Qcom common decryption
-PRODUCT_PACKAGES += \
-    qcom_decrypt
+#PRODUCT_PACKAGES += \
+#    qcom_decrypt

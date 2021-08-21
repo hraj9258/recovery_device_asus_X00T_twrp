@@ -113,7 +113,7 @@ PLATFORM_VERSION := 16.1.0
 
 # Crypto
 TW_INCLUDE_CRYPTO := true
-BOARD_USES_QCOM_DECRYPTION := true
+#BOARD_USES_QCOM_DECRYPTION := true
 
 # TWRP Configuration
 TW_THEME := portrait_hdpi
