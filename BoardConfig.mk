@@ -114,6 +114,8 @@ PLATFORM_VERSION := 16.1.0
 # Crypto
 TW_INCLUDE_CRYPTO := true
 BOARD_USES_QCOM_DECRYPTION := true
+# Enable HW based full disk encryption
+TARGET_HW_DISK_ENCRYPTION := true
 
 # TWRP Configuration
 TW_THEME := portrait_hdpi
