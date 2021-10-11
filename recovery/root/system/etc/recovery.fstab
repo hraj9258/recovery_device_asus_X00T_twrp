@@ -1,11 +1,11 @@
 # mount point   fstype    device                                       flags
 
-/system         ext4   /dev/block/bootdevice/by-name/system            flags=display="System";backup=1
+/system         ext4   /dev/block/bootdevice/by-name/system            flags=display="System";backup=1;wipeingui
 /system_image   emmc   /dev/block/bootdevice/by-name/system            flags=display="System Image";backup=1;flashimg=1
-/vendor         ext4   /dev/block/bootdevice/by-name/vendor            flags=display="Vendor";backup=1
+/vendor         ext4   /dev/block/bootdevice/by-name/vendor            flags=display="Vendor";backup=1;wipeingui
 /vendor_image   emmc   /dev/block/bootdevice/by-name/vendor            flags=display="Vendor Image";backup=1;flashimg=1
 
-/cache          ext4   /dev/block/bootdevice/by-name/cache             flags=display="Cache"
+/cache          ext4   /dev/block/bootdevice/by-name/cache             flags=display="Cache";wipeingui
 /boot           emmc   /dev/block/bootdevice/by-name/boot              flags=display="Boot Image";backup=1;flashimg=1
 /recovery       emmc   /dev/block/bootdevice/by-name/recovery          flags=display="Recovery Image";backup=1;flashimg=1
 /firmware       vfat   /dev/block/bootdevice/by-name/modem             flags=display="Firmware";mounttodecrypt;fsflags=ro
@@ -34,5 +34,5 @@
 /asusfw         ext4   /dev/block/bootdevice/by-name/asusfw            flags=display="ASUS Firmware";wipeingui
 
 # Removable storage
-/usb_otg        auto   /dev/block/sda1             /dev/block/sda       flags=display="USB-OTG";wipeingui;removable
+/usb_otg        auto   /dev/block/sda1             /dev/block/sda       flags=display="USB-OTG";wipeingui;storage;removable
 /external_sd    auto   /dev/block/mmcblk1p1        /dev/block/mmcblk1   flags=display="MicroSD";wipeingui;removable
