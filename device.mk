@@ -23,4 +23,5 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/embedded.mk)
 
 # Qcom common decryption
 PRODUCT_PACKAGES += \
-    qcom_decrypt
+    qcom_decrypt \
+    qcom_decrypt_fbe
