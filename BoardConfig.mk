@@ -106,24 +106,11 @@ TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery/root/system/etc/recovery.fstab
 # Use mke2fs to create ext4 images
 TARGET_USES_MKE2FS := true
 
-# Hack: prevent anti rollback
-PLATFORM_SECURITY_PATCH := 2099-12-31
-VENDOR_SECURITY_PATCH := 2099-12-31
-PLATFORM_VERSION := 16.1.0
-
-# Crypto
-TW_INCLUDE_CRYPTO := true
-BOARD_USES_QCOM_DECRYPTION := true
-# Enable HW based full disk encryption
-TARGET_CRYPTFS_HW_PATH := vendor/qcom/opensource/commonsys/cryptfs_hw
-TARGET_HW_DISK_ENCRYPTION := true
-
 # TWRP Configuration
 TW_THEME := portrait_hdpi
 RECOVERY_SDCARD_ON_DATA := true
 TARGET_RECOVERY_QCOM_RTC_FIX := true
 TW_INCLUDE_NTFS_3G := true
-#TW_NO_EXFAT_FUSE := true
 #TW_EXTRA_LANGUAGES := true
 TW_EXCLUDE_NANO := true
 TW_SCREEN_BLANK_ON_BOOT := true

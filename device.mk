@@ -19,8 +19,22 @@
 LOCAL_PATH := device/asus/ASUS_X00T
 
 # Inherit from the common Open Source product configuration
-$(call inherit-product, $(SRC_TARGET_DIR)/product/embedded.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit_only.mk)
 
 # Qcom common decryption
 PRODUCT_PACKAGES += \
-    qcom_decrypt
+    qcom_decrypt\
+    qcom_decrypt_fbe
+
+# Crypto
+TW_INCLUDE_CRYPTO := true
+BOARD_USES_QCOM_FBE_DECRYPTION := true
+# Enable HW based full disk encryption
+# TARGET_CRYPTFS_HW_PATH := vendor/qcom/opensource/commonsys/cryptfs_hw
+# TARGET_HW_DISK_ENCRYPTION := true
+
+# Hack: prevent anti rollback
+PLATFORM_SECURITY_PATCH := 2099-12-31
+VENDOR_SECURITY_PATCH := 2099-12-31
+PLATFORM_VERSION := 16.1.0
