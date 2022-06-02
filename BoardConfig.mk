@@ -51,23 +51,36 @@ TARGET_USERIMAGES_USE_F2FS := true
 TARGET_COPY_OUT_VENDOR := vendor
 
 # Kernel
+# BOARD_KERNEL_CMDLINE := \
+# 	console=ttyMSM0,115200n8 \
+# 	androidboot.console=ttyMSM0 \
+# 	earlycon=msm_serial_dm,0xc170000 \
+# 	androidboot.hardware=qcom \
+# 	user_debug=31 \
+# 	msm_rtb.filter=0x37 \
+# 	ehci-hcd.park=3 \
+# 	lpm_levels.sleep_disabled=1 \
+# 	sched_enable_hmp=1 \
+# 	sched_enable_power_aware=1 \
+# 	service_locator.enable=1 \
+# 	swiotlb=1 \
+# 	firmware_class.path=/vendor/firmware_mnt/image \
+# 	buildvariant=user
 BOARD_KERNEL_CMDLINE := \
-	console=ttyMSM0,115200,n8 \
+	console=ttyMSM0,115200n8 \
 	androidboot.console=ttyMSM0 \
 	earlycon=msm_serial_dm,0xc170000 \
 	androidboot.hardware=qcom \
 	user_debug=31 \
 	msm_rtb.filter=0x37 \
 	ehci-hcd.park=3 \
-	lpm_levels.sleep_disabled=1 \
-	sched_enable_hmp=1 \
-	sched_enable_power_aware=1 \
 	service_locator.enable=1 \
 	swiotlb=1 \
-	firmware_class.path=/vendor/firmware_mnt/image \
-	buildvariant=user
-BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive	
-TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/Image.gz-dtb
+	loop.max_part=7 \
+	buildvariant=userdebug
+BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
+BOARD_KERNEL_IMAGE_NAME := kernel
+TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/$(BOARD_KERNEL_IMAGE_NAME)
 BOARD_KERNEL_BASE := 0x00000000
 BOARD_KERNEL_PAGESIZE := 4096
 BOARD_RAMDISK_OFFSET := 0x01000000
@@ -75,7 +88,6 @@ BOARD_KERNEL_TAGS_OFFSET := 0x00000100
 BOARD_FLASH_BLOCK_SIZE := 262144 # (BOARD_KERNEL_PAGESIZE * 64)
 BOARD_MKBOOTIMG_ARGS += --ramdisk_offset $(BOARD_RAMDISK_OFFSET)
 BOARD_MKBOOTIMG_ARGS += --tags_offset $(BOARD_KERNEL_TAGS_OFFSET)
-BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
 TARGET_KERNEL_ARCH := $(TARGET_ARCH)
 TARGET_KERNEL_HEADER_ARCH := $(TARGET_ARCH)
 
